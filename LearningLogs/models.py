@@ -4,7 +4,7 @@ from django.db import models
 
 
 class Topic(models.Model):
-    text = models.CharField(max_length= 50)
+    text = models.CharField(max_length=50)
     posted_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -13,7 +13,7 @@ class Topic(models.Model):
 
 class Entry(models.Model):
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
-    text = models.CharField()
+    text = models.CharField(max_length=500)
     posted_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
