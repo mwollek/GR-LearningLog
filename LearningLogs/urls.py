@@ -1,10 +1,9 @@
-""" Define mocks of URL for LearningLogs application"""
+# urls of app
 
 from django.conf.urls import url
 
 from . import views
 
 urlpatterns = [
-    # Main page
     url(r'^$', views.index, name='index')
 ]
