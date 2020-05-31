@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Topics</title>
+</head>
+<body>
+    {% extends 'LearningLogs/base.html' %}
+
+    {% block content %}
+
+        <h1>Topics</h1>
+        <ul>
+           {% for topic in topics %}
+                <li>{{ topic }}</li>
+           {% empty %}
+               <li>No topics added yet</li>
+           {% endfor %}
+
+        </ul>
+    {% endblock %}content %}
+
+</body>
+</html>
