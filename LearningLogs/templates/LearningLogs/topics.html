@@ -12,7 +12,7 @@
         <h1>Topics</h1>
         <ul>
            {% for topic in topics %}
-                <li>{{ topic }}</li>
+                <li><a href="{% url 'LearningLogs:topic' topic.id %}">{{ topic }}</a></li>
            {% empty %}
                <li>No topics added yet</li>
            {% endfor %}
