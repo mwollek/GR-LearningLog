@@ -11,12 +11,18 @@
 
         <p>Topic: {{ topic }}</p>
         <p>Entries:</p>
+        <p>
+            <a href="{% url 'LearningLogs:new_entry' topic.id %}">Add new entry</a>
+        </p>
         <ul>
         {% for entry in entries %}
             <li>
                 <p>{{ entry.posted_date|date:'d M Y H:i' }}</p>
                 <p>{{ entry.text|linebreaks }}</p>
             </li>
+            <p>
+                <a href="{% url 'LearningLogs:edit_entry' entry.id %}">Edit</a>
+            </p>
         {% empty %}
             <li>No entries added yet.</li>
         {% endfor %}
