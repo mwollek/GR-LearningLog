@@ -7,7 +7,12 @@
 <body>
 <p>
     <a href="{% url 'LearningLogs:index' %}">LearningLog</a> -
-    <a href="{% url 'LearningLogs:topics' %}">Topics</a>
+    <a href="{% url 'LearningLogs:topics' %}">Topics</a> -
+    {% if user.is_authenticated %}
+        Hello, {{ user.username }}
+    {% else %}
+        <a href="{% url 'Users:login' %}">Login</a>
+    {% endif %}
 </p>
 
 {% block content %} {% endblock content%}

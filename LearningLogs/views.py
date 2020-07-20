@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Topic, Entry
+from .models import Topic, Entry, Test
 from .forms import TopicForm, EntryForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -73,4 +73,3 @@ def edit_entry(request, entry_id):
             return HttpResponseRedirect(reverse('LearningLogs:topic', args=[topic.id]))
     context = {'topic': topic, 'entry': entry, 'form': form}
     return render(request, 'LearningLogs/edit_entry.html', context)
-    return None

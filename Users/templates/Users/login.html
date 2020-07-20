@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+    {% extends 'LearningLogs/base.html' %}
+    {% block content %}
+        {% if form.errors %}
+            <p>Wrong username or password.</p>
+        {% endif %}
+
+        <form method="post" action="{% url 'Users:login' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button name="submit">Login</button>
+            <input type="hidden" name="next" value="{% url 'LearningLogs:index' %}"/>
+        </form>
+
+    {% endblock %}
+</body>
+</html>

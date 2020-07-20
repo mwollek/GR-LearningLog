@@ -23,3 +23,10 @@ class Entry(models.Model):
         return self.text[:50] + '...'
 
 
+class Test(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return "Test object"
+
+
