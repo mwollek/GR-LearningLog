@@ -3,6 +3,7 @@ from .models import Topic, Entry, Test
 from .forms import TopicForm, EntryForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
@@ -11,6 +12,7 @@ def index(request):
     return render(request, 'LearningLogs/index.html')
 
 
+@login_required
 def topics(request):
     """Displays page with topics"""
     topics = Topic.objects.order_by('posted_date')
@@ -18,6 +20,7 @@ def topics(request):
     return render(request, 'LearningLogs/topics.html', context)
 
 
+@login_required
 def topic(request, topic_id):
     """Displays single topic and conected entries"""
     topic = Topic.objects.get(id=topic_id)
@@ -26,6 +29,7 @@ def topic(request, topic_id):
     return render(request, 'LearningLogs/topic.html', context)
 
 
+@login_required
 def new_topic(request):
     """Creates form for new topic, or import new topic to database"""
     if request.method != 'POST':
@@ -41,6 +45,7 @@ def new_topic(request):
     return render(request, 'LearningLogs/new_topic.html', context)
 
 
+@login_required
 def new_entry(request, topic_id):
     """Creates form for new entry connected with topic -> topic_id"""
     topic = Topic.objects.get(id=topic_id)
@@ -59,6 +64,7 @@ def new_entry(request, topic_id):
     return render(request, 'LearningLogs/new_entry.html', context)
 
 
+@login_required
 def edit_entry(request, entry_id):
     """Editing form"""
     entry = Entry.objects.get(id=entry_id)
