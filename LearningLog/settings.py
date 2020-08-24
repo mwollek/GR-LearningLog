@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # my apps
     'LearningLogs',
     'Users',
+    'bootstrap3',
     
 ]
 
@@ -124,3 +125,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 LOGIN_URL = '/Users/login/'
+
+#bootstrap3 settings
+BOOTSTRAP3 = {
+    'include_jquery': True
+}

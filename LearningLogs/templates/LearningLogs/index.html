@@ -5,11 +5,23 @@
     <title>WebApp</title>
 </head>
 <body>
-    {% extends 'LearningLogs/base.html' %} <!-- Inherit block -->
+    {% extends 'LearningLogs/base.html' %} <!-- Inherited block -->
+
+    {% block header %}
+        <div class="jumbotron">
+            <h1 align="center">Monitor your learning progression</h1>
+        </div>
+    {% endblock %}
 
     {% block content %}
-        <p>LearningLogs is a Django WebApp. It helps you to monitor your progress in learning.</p>
-    {% endblock content%}
+        <h2>
+        <a href="{% url 'Users:register' %}">Register,</a> to start using the LearningLog application and store
+        a list of information about new experiences.
+        </h2>
+        <h2>
+          Post a new topic as soon as you catch up some new skills. Write about it, and come back to remind, whenever you want!
+        </h2>
+    {% endblock %}
 
 </body>
 </html>
